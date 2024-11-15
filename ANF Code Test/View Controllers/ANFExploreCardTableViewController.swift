@@ -24,6 +24,20 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     private static var listToDetailSegueId = "listToDetailSegue"
 
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let segueId = ANFExploreCardTableViewController.listToDetailSegueId
+
+        guard segue.identifier == segueId,
+              let detailsVC = segue.destination as? DetailsViewController,
+              let exploreItem = sender as? ExploreItem else {
+            return
+        }
+
+        detailsVC.exploreItem = exploreItem
+    }
+
     // MARK: TableViewDataSource Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -46,7 +60,13 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Get cell and unselect it:
-        let cell = tableView.cellForRow(at: indexPath)
-        cell?.setSelected(false, animated: true)
+        guard let cell = tableView.cellForRow(at: indexPath) as? ExploreContentTableViewCell else {
+            return
+        }
+
+        cell.setSelected(false, animated: true)
+
+        let segueId = ANFExploreCardTableViewController.listToDetailSegueId
+        self.performSegue(withIdentifier: segueId, sender: cell.exploreItem)
     }
 }

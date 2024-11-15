@@ -18,6 +18,8 @@ class ANFExploreCardTableViewController: UITableViewController {
         return nil
     }
 
+    private static var listToDetailSegueId = "listToDetailSegue"
+
     // MARK: TableViewDataSource Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

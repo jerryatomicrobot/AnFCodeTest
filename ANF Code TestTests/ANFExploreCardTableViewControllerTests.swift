@@ -18,7 +18,9 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
     override func setUp() {
         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
         let vcId = ANFExploreCardTableViewController.storyboardId
+
         testInstance = storyboard.instantiateViewController(withIdentifier: vcId) as? ANFExploreCardTableViewController
+        testInstance.exploreItems = exploreItems
     }
 
     func test_exploreData_shouldNotBeNil() {

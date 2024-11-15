@@ -11,7 +11,7 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     private lazy var activityIndicator: UIActivityIndicatorView = { UIActivityIndicatorView(style: .large) }()
 
-    private var exploreData: [ExploreItem]?
+    var exploreItems: [ExploreItem]?
 
     private static var listToDetailSegueId = "listToDetailSegue"
 
@@ -61,7 +61,7 @@ class ANFExploreCardTableViewController: UITableViewController {
             do {
                 showActivityIndicator()
 
-                exploreData = try await NetworkManager.shared.loadExploreItems()
+                exploreItems = try await NetworkManager.shared.loadExploreItems()
 
                 tableView.reloadData()
                 hideActivityIndicator()
@@ -107,7 +107,7 @@ class ANFExploreCardTableViewController: UITableViewController {
     // MARK: TableViewDataSource Methods
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        exploreData?.count ?? 0
+        exploreItems?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +117,7 @@ class ANFExploreCardTableViewController: UITableViewController {
             return UITableViewCell()
         }
         
-        cell.exploreItem = exploreData?[indexPath.row]
+        cell.exploreItem = exploreItems?[indexPath.row]
 
         return cell
     }

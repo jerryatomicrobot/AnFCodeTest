@@ -9,20 +9,11 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     // MARK: Vars and Constants
 
-    private var exploreData: [ExploreItem]? {
-        let decoder = JSONDecoder()
-
-        if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
-           let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
-           let exploreItems = try? decoder.decode([ExploreItem].self, from: fileContent) {
-
-            return exploreItems
-        }
-
-        return nil
-    }
+    private var exploreData: [ExploreItem]? { return ExploreItem.localExploreItems }
 
     private static var listToDetailSegueId = "listToDetailSegue"
+
+    static var storyboardId = "\(ANFExploreCardTableViewController.self)"
 
     // View Controller Lifecycle
 

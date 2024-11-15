@@ -23,6 +23,11 @@ class ExploreContentTableViewCell: UITableViewCell {
         }
     }
 
+    // NOTE: The following computed vars are for testing purposes only:
+
+    var title: String? { titleLabel.text }
+    var image: UIImage? { contentImageView.image }
+
     // MARK: UITableViewCell Lifecycle
 
     override func awakeFromNib() {

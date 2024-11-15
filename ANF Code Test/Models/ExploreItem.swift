@@ -74,3 +74,31 @@ struct ExploreItem: Codable {
     let bottomDescription: String?
     let content: [ExploreItemContent]?
 }
+
+extension ExploreItem {
+
+    // NOTE: The following computed vars have been encapsulated here as an extension of `ExploreItem` not only to
+    // avoid code duplication, but also for unit test purposes:
+
+    static var localExploreData: Data? {
+        if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
+           let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)) {
+
+            return fileContent
+        }
+
+        return nil
+    }
+
+    static var localExploreItems: [ExploreItem]? {
+        let decoder = JSONDecoder()
+
+        if let fileContent = ExploreItem.localExploreData,
+           let exploreItems = try? decoder.decode([ExploreItem].self, from: fileContent) {
+
+            return exploreItems
+        }
+
+        return nil
+    }
+}

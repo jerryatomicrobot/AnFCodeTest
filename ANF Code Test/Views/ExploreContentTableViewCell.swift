@@ -45,7 +45,19 @@ class ExploreContentTableViewCell: UITableViewCell {
         }
 
         titleLabel.text = exploreItem.title
-        contentImageView.image = UIImage(named: exploreItem.backgroundImage)
+
+        guard let backgroundImageUrl = exploreItem.backgroundImageUrl else {
+            return
+        }
+
+        Task {
+            do {
+                let image = try await NetworkManager.shared.downloadImage(url: backgroundImageUrl)
+                contentImageView.image = image
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 
     private func resetViewsContent() {

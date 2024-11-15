@@ -65,7 +65,7 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        bgImageView.image = UIImage(named: exploreItem.backgroundImage)
+        bgImageView.image = exploreItem.backgroundImage
         topDescLabel.text = exploreItem.topDescription
         titleLabel.text = exploreItem.title
         promoLabel.text = exploreItem.promoMessage

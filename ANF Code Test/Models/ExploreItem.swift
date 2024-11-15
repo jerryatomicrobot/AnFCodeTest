@@ -4,7 +4,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 // MARK: Enums
 
@@ -31,10 +31,10 @@ struct ExploreItemContent: Codable {
     var targetUrl: URL? { URL(string: targetUrlString) }
 
     enum CodingKeys: String, CodingKey {
-            case elementType
-            case target
-            case title
-        }
+        case elementType
+        case target
+        case title
+    }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -68,11 +68,24 @@ struct ExploreItemContent: Codable {
 struct ExploreItem: Codable {
 
     let title: String
-    let backgroundImage: String
+    let backgroundImageString: String
     let topDescription: String?
     let promoMessage: String?
     let bottomDescription: String?
     let content: [ExploreItemContent]?
+
+    var backgroundImageUrl: URL? { URL(string: self.backgroundImageString) }
+
+    var backgroundImage: UIImage?
+
+    enum CodingKeys: String, CodingKey {
+        case title
+        case backgroundImageString = "backgroundImage"
+        case topDescription
+        case promoMessage
+        case bottomDescription
+        case content
+    }
 }
 
 extension ExploreItem {

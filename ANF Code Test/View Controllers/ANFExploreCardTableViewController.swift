@@ -9,7 +9,8 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     // MARK: Vars and Constants
 
-    private var exploreData: [ExploreItem]? { return ExploreItem.localExploreItems }
+//    private var exploreData: [ExploreItem]? { return ExploreItem.localExploreItems }
+    private var exploreData: [ExploreItem]?
 
     private static var listToDetailSegueId = "listToDetailSegue"
 
@@ -22,6 +23,8 @@ class ANFExploreCardTableViewController: UITableViewController {
 
         self.title = "Explore!"
         self.navigationItem.backButtonTitle = ""
+
+        loadData()
     }
 
     // MARK: - Navigation
@@ -36,6 +39,24 @@ class ANFExploreCardTableViewController: UITableViewController {
         }
 
         detailsVC.exploreItem = exploreItem
+    }
+
+    // MARK: Setup Methods
+
+    private func loadData() {
+        Task {
+            do {
+                exploreData = try await NetworkManager.shared.loadExploreItems()
+                
+                tableView.reloadData()
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
+    }
+
+    private func loadImage(url: URL) {
+
     }
 
     // MARK: TableViewDataSource Methods

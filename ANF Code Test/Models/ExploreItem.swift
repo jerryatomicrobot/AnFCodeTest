@@ -76,8 +76,6 @@ struct ExploreItem: Codable {
 
     var backgroundImageUrl: URL? { URL(string: self.backgroundImageString) }
 
-    var backgroundImage: UIImage?
-
     enum CodingKeys: String, CodingKey {
         case title
         case backgroundImageString = "backgroundImage"

@@ -65,7 +65,8 @@ class DetailsViewController: UIViewController {
             return
         }
 
-        bgImageView.image = exploreItem.backgroundImage
+        setupBackgroundImage()
+
         topDescLabel.text = exploreItem.topDescription
         titleLabel.text = exploreItem.title
         promoLabel.text = exploreItem.promoMessage
@@ -78,6 +79,33 @@ class DetailsViewController: UIViewController {
         }
 
         bottomDescTextView.attributedText = attributedText
+    }
+
+    private func setupBackgroundImage() {
+        guard let exploreItem else { return }
+
+        // Attempt to set background image assuming that the obtained `backgroundImage` string is an Assets image:
+        self.bgImageView.image = UIImage(named: exploreItem.backgroundImageString)
+
+        guard let backgroundImageUrl = exploreItem.backgroundImageUrl,
+              bgImageView.image == nil else {
+            return
+        }
+
+        // Re-attempt to fetch the image from the web.
+        // The URLSession instance uses the `NSURLRequestUseProtocolCachePolicy` as default.
+        // Therefore, if this image has been already downloaded (at the previous view controller),
+        // the request should just retrieve the cached image from the local storage,
+        // and complete the request successfully:
+
+        Task {
+            do {
+                let image = try await NetworkManager.shared.downloadImage(url: backgroundImageUrl)
+                bgImageView.image = image
+            } catch {
+                print("Error: \(error.localizedDescription)")
+            }
+        }
     }
 
     private func resetViewsContent() {

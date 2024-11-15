@@ -46,7 +46,11 @@ class ExploreContentTableViewCell: UITableViewCell {
 
         titleLabel.text = exploreItem.title
 
-        guard let backgroundImageUrl = exploreItem.backgroundImageUrl else {
+        // Attempt to set background image assuming that the obtained `backgroundImage` string is an Assets image:
+        contentImageView.image = UIImage(named: exploreItem.backgroundImageString)
+
+        guard let backgroundImageUrl = exploreItem.backgroundImageUrl,
+              contentImageView.image == nil else {
             return
         }
 

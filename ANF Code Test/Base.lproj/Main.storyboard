@@ -16,6 +16,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ygq-O5-x5O">
                         <rect key="frame" x="0.0" y="50" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <connections>
                         <segue destination="PyX-fH-1PW" kind="relationship" relationship="rootViewController" id="QXa-BU-h5z"/>
@@ -32,7 +33,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="UJA-3f-Li9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreContentTableViewCell" id="VkP-n6-9sM" userLabel="ExploreContentTableViewCell" customClass="ExploreContentTableViewCell" customModule="ANF_Code_Test" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="90.666664123535156"/>
@@ -99,49 +100,80 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="394"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="anf-20160527-app-m-shirts" translatesAutoresizingMaskIntoConstraints="NO" id="aoA-mk-HZX" userLabel="BackgroundImageView">
-                                                <rect key="frame" x="16" y="16" width="343" height="158"/>
+                                                <rect key="frame" x="16" y="16" width="343" height="135"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-iR-XBJ" userLabel="LabelsStackView">
-                                                <rect key="frame" x="16" y="198" width="343" height="60"/>
+                                                <rect key="frame" x="16" y="175" width="343" height="65.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-3I-A9B" userLabel="TopDescriptionLabel">
-                                                        <rect key="frame" x="123.66666666666666" y="0.0" width="95.666666666666657" height="14"/>
+                                                        <rect key="frame" x="123.66666666666666" y="0.0" width="95.666666666666657" height="15.666666666666666"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="fj7-9U-Zqq"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" systemColor="systemGrayColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="fj7-9U-Zqq"/>
+                                                            </mask>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hvc-Uh-igN" userLabel="TitleLabel">
-                                                        <rect key="frame" x="153.33333333333334" y="22" width="36.333333333333343" height="18"/>
+                                                        <rect key="frame" x="153.33333333333334" y="23.666666666666686" width="36.333333333333343" height="20.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="Ae1-qk-b5W"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Ae1-qk-b5W"/>
+                                                            </mask>
+                                                        </variation>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Promo Message" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMZ-8Z-lnU" userLabel="PromoMessageLabel">
-                                                        <rect key="frame" x="129.66666666666666" y="48" width="84" height="12"/>
+                                                        <rect key="frame" x="129.66666666666666" y="52" width="84" height="13.333333333333329"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="12" id="Tol-Yv-mTp"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Tol-Yv-mTp"/>
+                                                            </mask>
+                                                        </variation>
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bottom Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94D-Uv-NBR" userLabel="BottomDescriptionLabel">
-                                                <rect key="frame" x="16" y="282" width="343" height="14"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyG-Cm-7Ie" userLabel="BottomDescriptionTextView">
+                                                <rect key="frame" x="16" y="264.33333333333331" width="343" height="31.666666666666686"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="14" id="dva-rG-xzi"/>
+                                                    <constraint firstAttribute="height" constant="14" id="UgG-Yu-TXZ"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                <color key="textColor" systemColor="systemGray3Color"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Bttom Description">
+                                                        <attributes>
+                                                            <color key="NSColor" systemColor="systemGray3Color"/>
+                                                            <font key="NSFont" metaFont="system"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="UgG-Yu-TXZ"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <outlet property="delegate" destination="m5q-MP-4Co" id="w6B-Ju-cCW"/>
+                                                </connections>
+                                            </textView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="08H-wK-XjM" userLabel="ButtonStackView">
                                                 <rect key="frame" x="16" y="320" width="343" height="50"/>
                                                 <subviews>
@@ -181,7 +213,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mEP-5l-EgX"/>
-                        <color key="backgroundColor" red="0.9997780919" green="1" blue="0.96862286330000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xgQ-tB-4c0" secondAttribute="trailing" id="DnO-TR-yvL"/>
                             <constraint firstItem="xgQ-tB-4c0" firstAttribute="top" secondItem="mEP-5l-EgX" secondAttribute="top" id="FLj-2J-oHJ"/>
@@ -192,7 +224,7 @@
                     <navigationItem key="navigationItem" id="q8a-bl-nAi"/>
                     <connections>
                         <outlet property="bgImageView" destination="aoA-mk-HZX" id="CX6-Bq-5Mz"/>
-                        <outlet property="bottomDescLabel" destination="94D-Uv-NBR" id="NxY-a4-0m8"/>
+                        <outlet property="bottomDescTextView" destination="YyG-Cm-7Ie" id="UgD-s0-jBN"/>
                         <outlet property="buttonsStackView" destination="08H-wK-XjM" id="VGD-Qc-lFi"/>
                         <outlet property="promoLabel" destination="BMZ-8Z-lnU" id="LyF-Mf-rgX"/>
                         <outlet property="titleLabel" destination="hvc-Uh-igN" id="A74-aM-QZ6"/>
@@ -211,17 +243,14 @@
     </designables>
     <resources>
         <image name="anf-20160527-app-m-shirts" width="1000" height="559"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray2Color">
-            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray3Color">
-            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

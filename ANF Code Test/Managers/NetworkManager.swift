@@ -44,20 +44,27 @@ struct NetworkManager {
     private var session = URLSession.shared
 
     private let baseUrl = "https://www.abercrombie.com"
-    private let exploreItemsEndpoint = "/anf/nativeapp/qa/codetest/codeTest_exploreData.json"
+    private let exploreItemsEndpoint = "/anf/nativeapp/qa/codetest/codeTest_exploreData.css"
 
-    private var exploreItemsWebUrl: URL? { URL(string: baseUrl + exploreItemsEndpoint) }
+    private var exploreItemsUrl: URL? {
+        if UIApplication.useLocalExploreData == false {
+            // Send over web URL:
+            return URL(string: baseUrl + exploreItemsEndpoint)
+        }
 
-    private var exploreItemsLocalUrl: URL? {
         guard let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json") else {
             return nil
         }
 
+        // Send over local data URL:
         return URL(fileURLWithPath: filePath)
     }
-
+    
+    /// Loads and returns an array of `ExploreItem` objects from either the local data or the web (See `ANF_UseLocalExploreData` at `Info.plist`).
+    /// - Returns: An array of `ExploreItem` objects
     func loadExploreItems() async throws -> [ExploreItem] {
-        guard let exploreItemsUrl = exploreItemsWebUrl else {
+
+        guard let exploreItemsUrl else {
             throw NetworkManagerError.invalidUrl
         }
 
@@ -67,8 +74,22 @@ struct NetworkManager {
 
         return try decoder.decode([ExploreItem].self, from: data)
     }
-
+    
+    /// Downloads an image with the given URL asynchronously.
+    /// - Parameter url: The image URL
+    /// - Returns: the downloaded `UIImage` instance
     func downloadImage(url: URL) async throws -> UIImage {
+        if await UIApplication.useLocalExploreData == true {
+            // Attempt to get the image from the Assets catalog:
+            let image = UIImage(named: url.absoluteString)
+
+            if let image {
+                return image
+            } else {
+                throw NetworkManagerError.invalidImageData
+            }
+        }
+
         let data = try await self.performRequest(url: url)
 
         guard let image = UIImage(data: data) else {
@@ -81,6 +102,11 @@ struct NetworkManager {
     private func performRequest(url: URL) async throws -> Data {
         let request = URLRequest(url: url)
         let (data, response) = try await session.data(for: request)
+
+        if await UIApplication.useLocalExploreData == true {
+            // Return the data, because this was not an HTTP request:
+            return data
+        }
 
         guard let httpResponse = response as? HTTPURLResponse else {
             throw NetworkManagerError.invalidResponse

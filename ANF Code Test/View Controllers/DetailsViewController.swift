@@ -84,11 +84,7 @@ class DetailsViewController: UIViewController {
     private func setupBackgroundImage() {
         guard let exploreItem else { return }
 
-        // Attempt to set background image assuming that the obtained `backgroundImage` string is an Assets image:
-        self.bgImageView.image = UIImage(named: exploreItem.backgroundImageString)
-
-        guard let backgroundImageUrl = exploreItem.backgroundImageUrl,
-              bgImageView.image == nil else {
+        guard let backgroundImageUrl = exploreItem.backgroundImageUrl else {
             return
         }
 

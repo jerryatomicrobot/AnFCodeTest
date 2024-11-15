@@ -20,7 +20,10 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
         let vcId = ANFExploreCardTableViewController.storyboardId
 
         testInstance = storyboard.instantiateViewController(withIdentifier: vcId) as? ANFExploreCardTableViewController
-        testInstance.exploreItems = exploreItems
+
+        if UIApplication.useLocalExploreData {
+            testInstance.exploreItems = exploreItems
+        }
     }
 
     func test_exploreData_shouldNotBeNil() {
@@ -61,7 +64,31 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
             return
         }
 
-        let image = firstCell.image
-        XCTAssertNotNil(image, "image view image should not be nil")
+        // Set a delay to avoid race condition between retrieving the image and setting it on the cell's image view:
+        let secondsToDelay = 5.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + secondsToDelay) {
+            let image = firstCell.image
+            XCTAssertNotNil(image, "image view image should not be nil")
+        }
+    }
+
+    func test_downloadWebExploreData() async throws {
+        let items: [ExploreItem] = try await NetworkManager.shared.loadExploreItems()
+        XCTAssertNotNil(items, "Items should not be nil")
+    }
+
+    func test_downloadBackgroundImage() async throws {
+        let items: [ExploreItem] = try await NetworkManager.shared.loadExploreItems()
+
+        XCTAssertNotNil(items, "Items should not be nil")
+        XCTAssertGreaterThan(items.count, 0, "There should be at least one item available")
+
+        guard let item = items.first, let url = item.backgroundImageUrl else {
+            XCTFail("No items available for image download testing")
+            return
+        }
+
+        let image = try await NetworkManager.shared.downloadImage(url: url)
+        XCTAssertNotNil(image, "Image should be valid")
     }
 }

@@ -16,12 +16,44 @@ class DetailsViewController: UIViewController {
     @IBOutlet private weak var bottomDescLabel: UILabel!
     @IBOutlet private weak var buttonsStackView: UIStackView!
 
+    // MARK: Vars and Constants
+
+    private var contentButtons: [PrimaryButton]?
+
+    var exploreItem: ExploreItem?
+
+    // MARK: View Controller Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        updateViewContent()
     }
-    
+
+    // MARK: Private Utility Methods
+
+    private func updateViewContent() {
+        guard let exploreItem else {
+            resetViewsContent()
+            return
+        }
+
+        bgImageView.image = UIImage(named: exploreItem.backgroundImage)
+        topDescLabel.text = exploreItem.topDescription
+        titleLabel.text = exploreItem.title
+        promoLabel.text = exploreItem.promoMessage // TODO: Update with attributed string
+        bottomDescLabel.text = exploreItem.bottomDescription
+    }
+
+    private func resetViewsContent() {
+        bgImageView.image = nil
+        topDescLabel.text = nil
+        titleLabel.text = nil
+        promoLabel.text = nil
+        bottomDescLabel.text = nil
+
+        contentButtons?.forEach { $0.removeFromSuperview() }
+    }
 
     /*
     // MARK: - Navigation

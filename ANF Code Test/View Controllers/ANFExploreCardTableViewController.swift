@@ -9,12 +9,16 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     // MARK: Vars and Constants
 
-    private var exploreData: [[AnyHashable: Any]]? {
+    private var exploreData: [ExploreItem]? {
+        let decoder = JSONDecoder()
+
         if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
-         let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
-         let jsonDictionary = try? JSONSerialization.jsonObject(with: fileContent, options: .mutableContainers) as? [[AnyHashable: Any]] {
-            return jsonDictionary
+           let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
+           let exploreItems = try? decoder.decode([ExploreItem].self, from: fileContent) {
+
+            return exploreItems
         }
+
         return nil
     }
 
@@ -29,12 +33,12 @@ class ANFExploreCardTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "exploreContentCell", for: indexPath)
         if let titleLabel = cell.viewWithTag(1) as? UILabel,
-           let titleText = exploreData?[indexPath.row]["title"] as? String {
+           let titleText = exploreData?[indexPath.row].title as? String {
             titleLabel.text = titleText
         }
         
         if let imageView = cell.viewWithTag(2) as? UIImageView,
-           let name = exploreData?[indexPath.row]["backgroundImage"] as? String,
+           let name = exploreData?[indexPath.row].backgroundImage as? String,
            let image = UIImage(named: name) {
             imageView.image = image
         }

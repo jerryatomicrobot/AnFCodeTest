@@ -8,8 +8,8 @@ import UIKit
 @IBDesignable
 class PrimaryButton: UIButton {
 
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override func willMove(toSuperview newSuperview: UIView?) {
+        super.willMove(toSuperview: newSuperview)
 
         if #available(iOS 15.0, *) {
             self.configuration = .primary

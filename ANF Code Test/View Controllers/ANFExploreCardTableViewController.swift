@@ -24,6 +24,15 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     private static var listToDetailSegueId = "listToDetailSegue"
 
+    // View Controller Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.title = "Explore!"
+        self.navigationItem.backButtonTitle = ""
+    }
+
     // MARK: - Navigation
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

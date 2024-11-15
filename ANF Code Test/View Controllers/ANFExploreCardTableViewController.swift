@@ -9,6 +9,8 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     // MARK: Vars and Constants
 
+    private lazy var activityIndicator: UIActivityIndicatorView = { UIActivityIndicatorView(style: .large) }()
+
 //    private var exploreData: [ExploreItem]? { return ExploreItem.localExploreItems }
     private var exploreData: [ExploreItem]?
 
@@ -24,6 +26,7 @@ class ANFExploreCardTableViewController: UITableViewController {
         self.title = "Explore!"
         self.navigationItem.backButtonTitle = ""
 
+        setupView()
         loadData()
     }
 
@@ -43,20 +46,41 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     // MARK: Setup Methods
 
+    private func setupView() {
+        self.view.addSubview(activityIndicator)
+
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        activityIndicator.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
+
+        activityIndicator.isHidden = true
+        activityIndicator.startAnimating()
+    }
+
     private func loadData() {
         Task {
             do {
+                showActivityIndicator()
+
                 exploreData = try await NetworkManager.shared.loadExploreItems()
-                
+
                 tableView.reloadData()
+                hideActivityIndicator()
             } catch {
                 print("Error: \(error.localizedDescription)")
+                hideActivityIndicator()
             }
         }
     }
 
-    private func loadImage(url: URL) {
+    private func showActivityIndicator() {
+        tableView.isHidden = true
+        activityIndicator.isHidden = false
+    }
 
+    private func hideActivityIndicator() {
+        tableView.isHidden = false
+        activityIndicator.isHidden = true
     }
 
     // MARK: TableViewDataSource Methods

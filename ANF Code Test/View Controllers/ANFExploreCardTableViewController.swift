@@ -11,7 +11,6 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     private lazy var activityIndicator: UIActivityIndicatorView = { UIActivityIndicatorView(style: .large) }()
 
-//    private var exploreData: [ExploreItem]? { return ExploreItem.localExploreItems }
     private var exploreData: [ExploreItem]?
 
     private static var listToDetailSegueId = "listToDetailSegue"
@@ -44,7 +43,7 @@ class ANFExploreCardTableViewController: UITableViewController {
         detailsVC.exploreItem = exploreItem
     }
 
-    // MARK: Setup Methods
+    // MARK: Setup/Utility Methods
 
     private func setupView() {
         self.view.addSubview(activityIndicator)
@@ -67,7 +66,7 @@ class ANFExploreCardTableViewController: UITableViewController {
                 tableView.reloadData()
                 hideActivityIndicator()
             } catch {
-                print("Error: \(error.localizedDescription)")
+                showErrorAlert(error)
                 hideActivityIndicator()
             }
         }
@@ -81,6 +80,28 @@ class ANFExploreCardTableViewController: UITableViewController {
     private func hideActivityIndicator() {
         tableView.isHidden = false
         activityIndicator.isHidden = true
+    }
+
+    private func showErrorAlert(_ error: Error) {
+        print("Error: \(error.localizedDescription)")
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let retryAction = UIAlertAction(title: "RETRY", style: .cancel) { _ in
+            self.loadData()
+        }
+
+        let errorMsg: String
+        if let error = error as? NetworkManagerError {
+            errorMsg = error.localizedDescription
+        } else {
+            errorMsg = error.localizedDescription
+        }
+
+        let alertController = UIAlertController(title: "Error", message: errorMsg, preferredStyle: .alert)
+        alertController.addAction(okAction)
+        alertController.addAction(retryAction)
+
+        present(alertController, animated: true)
     }
 
     // MARK: TableViewDataSource Methods

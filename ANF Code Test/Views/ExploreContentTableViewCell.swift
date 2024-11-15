@@ -34,20 +34,17 @@ class ExploreContentTableViewCell: UITableViewCell {
     // MARK: Private Utility Methods
 
     private func updateCellContent() {
-        guard exploreItem != nil else {
+        guard let exploreItem else {
             resetViewsContent()
             return
         }
 
-        titleLabel.text = exploreItem?.title
-
-        if let backgroundImageString = exploreItem?.backgroundImage {
-            contentImageView.image = UIImage(named: backgroundImageString)
-        }
+        titleLabel.text = exploreItem.title
+        contentImageView.image = UIImage(named: exploreItem.backgroundImage)
     }
 
     private func resetViewsContent() {
-        titleLabel.text = ""
+        titleLabel.text = nil
         contentImageView.image = nil
     }
 

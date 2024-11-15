@@ -21,6 +21,7 @@ extension UIButton.Configuration {
         configuration.baseForegroundColor = foregroundColor
 
         // Border setup:
+        configuration.background.cornerRadius = 0
         configuration.background.strokeColor = foregroundColor
         configuration.background.strokeWidth = 2.0
 

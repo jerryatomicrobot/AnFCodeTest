@@ -31,18 +31,14 @@ class ANFExploreCardTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "exploreContentCell", for: indexPath)
-        if let titleLabel = cell.viewWithTag(1) as? UILabel,
-           let titleText = exploreData?[indexPath.row].title as? String {
-            titleLabel.text = titleText
+        let reusableId = ExploreContentTableViewCell.reusableId
+
+        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: reusableId, for: indexPath) as? ExploreContentTableViewCell else {
+            return UITableViewCell()
         }
         
-        if let imageView = cell.viewWithTag(2) as? UIImageView,
-           let name = exploreData?[indexPath.row].backgroundImage as? String,
-           let image = UIImage(named: name) {
-            imageView.image = image
-        }
-        
+        cell.exploreItem = exploreData?[indexPath.row]
+
         return cell
     }
 

@@ -7,10 +7,6 @@ import UIKit
 
 class DetailsViewController: UIViewController {
 
-    // MARK: Vars and Constants
-
-    static var storyboardId = "\(DetailsViewController.self)"
-
     // MARK: IBOutlets
 
     @IBOutlet private weak var bgImageView: UIImageView!

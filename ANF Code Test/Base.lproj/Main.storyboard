@@ -34,7 +34,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="exploreContentCell" id="VkP-n6-9sM" userLabel="ExploreContentTableViewCell" customClass="ExploreContentTableViewCell" customModule="ANF_Code_Test" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ExploreContentTableViewCell" id="VkP-n6-9sM" userLabel="ExploreContentTableViewCell" customClass="ExploreContentTableViewCell" customModule="ANF_Code_Test" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="50" width="375" height="90.666664123535156"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VkP-n6-9sM" id="cAC-C2-Lla">

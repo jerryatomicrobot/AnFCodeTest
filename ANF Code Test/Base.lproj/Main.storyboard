@@ -139,10 +139,10 @@
                                         <color key="textColor" systemColor="systemGray3Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="08H-wK-XjM" userLabel="ButtonStackView">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="08H-wK-XjM" userLabel="ButtonStackView">
                                         <rect key="frame" x="16" y="344" width="311" height="50"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="cnp-TK-Mzy" userLabel="DummyButton">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="cnp-TK-Mzy" userLabel="DummyButton" customClass="PrimaryButton" customModule="ANF_Code_Test" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="311" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="V0w-Yn-SyV"/>
@@ -153,13 +153,9 @@
                                                 </buttonConfiguration>
                                             </button>
                                         </subviews>
-                                        <variation key="default">
-                                            <mask key="subviews">
-                                                <exclude reference="cnp-TK-Mzy"/>
-                                            </mask>
-                                        </variation>
                                     </stackView>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="tdV-y7-U7X" firstAttribute="trailing" secondItem="08H-wK-XjM" secondAttribute="trailing" constant="16" id="1Vj-sP-alB"/>
                                     <constraint firstItem="08H-wK-XjM" firstAttribute="top" secondItem="94D-Uv-NBR" secondAttribute="bottom" constant="24" id="4om-nC-cBZ"/>
@@ -180,7 +176,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="mEP-5l-EgX"/>
-                        <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
+                        <color key="backgroundColor" red="0.9997780919" green="1" blue="0.96862286330000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="xgQ-tB-4c0" secondAttribute="trailing" id="DnO-TR-yvL"/>
                             <constraint firstItem="xgQ-tB-4c0" firstAttribute="top" secondItem="mEP-5l-EgX" secondAttribute="top" constant="16" id="FLj-2J-oHJ"/>
@@ -204,6 +200,11 @@
             <point key="canvasLocation" x="613.60000000000002" y="61.330049261083744"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="cnp-TK-Mzy">
+            <size key="intrinsicContentSize" width="126.33333333333333" height="32"/>
+        </designable>
+    </designables>
     <resources>
         <image name="anf-20160527-app-m-shirts" width="1000" height="559"/>
         <systemColor name="systemBackgroundColor">
@@ -217,9 +218,6 @@
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="tertiarySystemGroupedBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

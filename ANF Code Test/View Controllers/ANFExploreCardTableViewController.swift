@@ -7,7 +7,7 @@ import UIKit
 
 class ANFExploreCardTableViewController: UITableViewController {
 
-    // MARK: Vars anc Constants
+    // MARK: Vars and Constants
 
     private var exploreData: [[AnyHashable: Any]]? {
         if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
@@ -40,5 +40,13 @@ class ANFExploreCardTableViewController: UITableViewController {
         }
         
         return cell
+    }
+
+    // MARK: TableViewDelegate Methods
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // Get cell and unselect it:
+        let cell = tableView.cellForRow(at: indexPath)
+        cell?.setSelected(false, animated: true)
     }
 }

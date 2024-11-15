@@ -99,6 +99,8 @@ class DetailsViewController: UIViewController {
 
             let button = ContentButton()
             button.setTitle($0.title, for: .normal)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            button.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
             buttonsStackView.addArrangedSubview(button)
             contentButtons.append(button)

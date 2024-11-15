@@ -18,7 +18,7 @@ class DetailsViewController: UIViewController {
 
     // MARK: Vars and Constants
 
-    private var contentButtons: [PrimaryButton]?
+    private var contentButtons: [ContentButton] = []
 
     private var bottomDescAttributedString: NSAttributedString? {
         guard let exploreItem = self.exploreItem,
@@ -57,16 +57,6 @@ class DetailsViewController: UIViewController {
         updateViewContent()
     }
 
-    /*
-     // MARK: - Navigation
-
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-
     // MARK: Private Utility Methods
 
     private func updateViewContent() {
@@ -80,8 +70,10 @@ class DetailsViewController: UIViewController {
         titleLabel.text = exploreItem.title
         promoLabel.text = exploreItem.promoMessage
 
+        generateContentButtons()
+
         guard let attributedText = bottomDescAttributedString else {
-            bottomDescTextView.attributedText = NSAttributedString(string: "")
+            bottomDescTextView.text = nil
             return
         }
 
@@ -93,8 +85,33 @@ class DetailsViewController: UIViewController {
         topDescLabel.text = nil
         titleLabel.text = nil
         promoLabel.text = nil
-        bottomDescTextView.attributedText = NSAttributedString(string: "")
+        bottomDescTextView.text = nil
 
-        contentButtons?.forEach { $0.removeFromSuperview() }
+        contentButtons.forEach { $0.removeFromSuperview() }
+    }
+
+    private func generateContentButtons() {
+        guard let contentList = exploreItem?.content else {
+            return
+        }
+
+        contentList.forEach {
+
+            let button = ContentButton()
+            button.setTitle($0.title, for: .normal)
+
+            buttonsStackView.addArrangedSubview(button)
+            contentButtons.append(button)
+
+            guard let url = $0.targetUrl, UIApplication.shared.canOpenURL(url) else {
+                return
+            }
+
+            let action = UIAction() { _ in
+                UIApplication.shared.open(url)
+            }
+
+            button.addAction(action, for: .touchUpInside)
+        }
     }
 }

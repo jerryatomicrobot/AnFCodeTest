@@ -1,12 +1,18 @@
 //
-//  PrimaryButton.swift
+//  ContentButton.swift
 //  ANF Code Test
 //
 
 import UIKit
 
 @IBDesignable
-class PrimaryButton: UIButton {
+class ContentButton: UIButton {
+
+    // MARK: Vars
+
+    var exploreItemContent: ExploreItemContent?
+
+    // MARK: Button Customization
 
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)

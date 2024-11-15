@@ -27,7 +27,9 @@ struct ExploreItemContent: Codable {
     let elementType: ElementType
     let targetUrlString: String
     let title: String
-    
+
+    var targetUrl: URL? { URL(string: targetUrlString) }
+
     enum CodingKeys: String, CodingKey {
             case elementType
             case target

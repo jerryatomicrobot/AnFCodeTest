@@ -96,14 +96,14 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xgQ-tB-4c0">
                                 <rect key="frame" x="16" y="94" width="343" height="684"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="xml-Fd-ioH" userLabel="MainStackView">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xml-Fd-ioH" userLabel="MainStackView">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="394"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="750" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" image="anf-20160527-app-m-shirts" translatesAutoresizingMaskIntoConstraints="NO" id="aoA-mk-HZX" userLabel="BackgroundImageView">
-                                                <rect key="frame" x="16" y="16" width="343" height="135"/>
+                                                <rect key="frame" x="16" y="16" width="343" height="159"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="DuB-iR-XBJ" userLabel="LabelsStackView">
-                                                <rect key="frame" x="16" y="175" width="343" height="65.333333333333314"/>
+                                                <rect key="frame" x="16" y="191" width="343" height="65.333333333333314"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9q-3I-A9B" userLabel="TopDescriptionLabel">
                                                         <rect key="frame" x="123.66666666666666" y="0.0" width="95.666666666666657" height="15.666666666666666"/>
@@ -149,15 +149,15 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="500" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyG-Cm-7Ie" userLabel="BottomDescriptionTextView">
-                                                <rect key="frame" x="16" y="264.33333333333331" width="343" height="31.666666666666686"/>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" canCancelContentTouches="NO" bouncesZoom="NO" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YyG-Cm-7Ie" userLabel="BottomDescriptionTextView">
+                                                <rect key="frame" x="16" y="272.33333333333331" width="343" height="31.666666666666686"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="14" id="UgG-Yu-TXZ"/>
                                                 </constraints>
                                                 <attributedString key="attributedText">
-                                                    <fragment content="Bttom Description">
+                                                    <fragment content="Bottom Description">
                                                         <attributes>
-                                                            <color key="NSColor" systemColor="systemGray3Color"/>
+                                                            <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <font key="NSFont" metaFont="system"/>
                                                             <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                         </attributes>
@@ -177,7 +177,7 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="08H-wK-XjM" userLabel="ButtonStackView">
                                                 <rect key="frame" x="16" y="320" width="343" height="50"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="cnp-TK-Mzy" userLabel="DummyButton" customClass="PrimaryButton" customModule="ANF_Code_Test" customModuleProvider="target">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="cnp-TK-Mzy" userLabel="DummyButton" customClass="ContentButton" customModule="ANF_Code_Test" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="V0w-Yn-SyV"/>
@@ -236,18 +236,10 @@
             <point key="canvasLocation" x="613.60000000000002" y="61.330049261083744"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="cnp-TK-Mzy">
-            <size key="intrinsicContentSize" width="40" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="anf-20160527-app-m-shirts" width="1000" height="559"/>
         <systemColor name="systemGray2Color">
             <color red="0.68235294120000001" green="0.68235294120000001" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGray3Color">
-            <color red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

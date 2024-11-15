@@ -7,6 +7,8 @@ import UIKit
 
 class ANFExploreCardTableViewController: UITableViewController {
 
+    // MARK: Vars anc Constants
+
     private var exploreData: [[AnyHashable: Any]]? {
         if let filePath = Bundle.main.path(forResource: "exploreData", ofType: "json"),
          let fileContent = try? Data(contentsOf: URL(fileURLWithPath: filePath)),
@@ -15,13 +17,15 @@ class ANFExploreCardTableViewController: UITableViewController {
         }
         return nil
     }
-    
+
+    // MARK: TableViewDataSource Methods
+
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         exploreData?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "ExploreContentCell", for: indexPath)
+        let cell = self.tableView.dequeueReusableCell(withIdentifier: "exploreContentCell", for: indexPath)
         if let titleLabel = cell.viewWithTag(1) as? UILabel,
            let titleText = exploreData?[indexPath.row]["title"] as? String {
             titleLabel.text = titleText

@@ -9,7 +9,7 @@ class ExploreContentTableViewCell: UITableViewCell {
 
     // MARK: IBOutlets
 
-    @IBOutlet private weak var bgImageView: UIImageView!
+    @IBOutlet private weak var itemImageView: UIImageView!
     @IBOutlet private weak var topDescLabel: UILabel!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var promoLabel: UILabel!
@@ -58,7 +58,7 @@ class ExploreContentTableViewCell: UITableViewCell {
 
     // NOTE: The following computed vars are for unit testing purposes only:
 
-    var image: UIImage? { bgImageView.image }
+    var image: UIImage? { itemImageView.image }
     var topDescription: String? { topDescLabel.text }
     var title: String? { titleLabel.text }
     var promo: String? { promoLabel.text }
@@ -120,7 +120,7 @@ class ExploreContentTableViewCell: UITableViewCell {
             do {
                 let image = try await NetworkManager.shared.downloadImage(url: backgroundImageUrl)
 
-                bgImageView.image = image
+                itemImageView.image = image
 
             } catch {
                 print("Error: \(error.localizedDescription)")
@@ -162,7 +162,7 @@ class ExploreContentTableViewCell: UITableViewCell {
     }
 
     private func resetViewsContent() {
-        bgImageView.image = nil
+        itemImageView.image = nil
         topDescLabel.text = nil
         titleLabel.text = nil
         promoLabel.text = nil

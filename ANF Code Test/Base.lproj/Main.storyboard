@@ -168,10 +168,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="1" green="1" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <outlet property="bgImageView" destination="70z-G9-yFO" id="YWg-iT-rAe"/>
                                     <outlet property="bottomDescTextView" destination="mBC-sS-A8S" id="FBd-Mg-ANj"/>
                                     <outlet property="buttonsStackView" destination="CKj-Ye-dTn" id="I7N-oA-SEl"/>
                                     <outlet property="descTextStackView" destination="7kA-Rg-2wZ" id="3RO-dL-7F1"/>
+                                    <outlet property="itemImageView" destination="70z-G9-yFO" id="YWg-iT-rAe"/>
                                     <outlet property="promoLabel" destination="Xss-rF-EWT" id="kHq-B1-pJJ"/>
                                     <outlet property="titleLabel" destination="Nve-z2-Z0t" id="v3b-sb-Rqu"/>
                                     <outlet property="topDescLabel" destination="YLZ-G9-Pbn" id="PyF-Fa-oQZ"/>

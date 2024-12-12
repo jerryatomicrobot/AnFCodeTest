@@ -118,12 +118,13 @@ class ExploreContentTableViewCell: UITableViewCell {
 
         Task {
             do {
+                bgImageView.isHidden = true
+
                 let image = try await NetworkManager.shared.downloadImage(url: backgroundImageUrl)
 
-                bgImageView.isHidden = false
                 bgImageView.image = image
+                bgImageView.isHidden = false
             } catch {
-                bgImageView.isHidden = true
                 print("Error: \(error.localizedDescription)")
             }
         }

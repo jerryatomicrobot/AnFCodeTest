@@ -18,7 +18,6 @@
 		C47F3FBC2B76A18D0061FD7E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F3FBB2B76A18D0061FD7E /* NetworkManager.swift */; };
 		C47F3FBE2B76EB340061FD7E /* SkeletonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F3FBD2B76EB340061FD7E /* SkeletonImageView.swift */; };
 		C47F3FC02B7ACDBF0061FD7E /* UIApplication+ANF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47F3FBF2B7ACDBF0061FD7E /* UIApplication+ANF.swift */; };
-		C4B401312B72B0D300DE2BD3 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B401302B72B0D300DE2BD3 /* DetailsViewController.swift */; };
 		C4B401342B73EBAA00DE2BD3 /* ContentButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B401332B73EBAA00DE2BD3 /* ContentButton.swift */; };
 		C4B401372B74265000DE2BD3 /* UIButtonConfiguration+ANF.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B401362B74265000DE2BD3 /* UIButtonConfiguration+ANF.swift */; };
 		C4B401392B742F5100DE2BD3 /* ExploreContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B401382B742F5100DE2BD3 /* ExploreContentTableViewCell.swift */; };
@@ -51,7 +50,6 @@
 		C47F3FBB2B76A18D0061FD7E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C47F3FBD2B76EB340061FD7E /* SkeletonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonImageView.swift; sourceTree = "<group>"; };
 		C47F3FBF2B7ACDBF0061FD7E /* UIApplication+ANF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+ANF.swift"; sourceTree = "<group>"; };
-		C4B401302B72B0D300DE2BD3 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		C4B401332B73EBAA00DE2BD3 /* ContentButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentButton.swift; sourceTree = "<group>"; };
 		C4B401362B74265000DE2BD3 /* UIButtonConfiguration+ANF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButtonConfiguration+ANF.swift"; sourceTree = "<group>"; };
 		C4B401382B742F5100DE2BD3 /* ExploreContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreContentTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 			isa = PBXGroup;
 			children = (
 				3E727F02267281F7006C11AC /* ANFExploreCardTableViewController.swift */,
-				C4B401302B72B0D300DE2BD3 /* DetailsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -276,7 +273,6 @@
 				C4B401372B74265000DE2BD3 /* UIButtonConfiguration+ANF.swift in Sources */,
 				C4B401342B73EBAA00DE2BD3 /* ContentButton.swift in Sources */,
 				3E727ED526727088006C11AC /* SceneDelegate.swift in Sources */,
-				C4B401312B72B0D300DE2BD3 /* DetailsViewController.swift in Sources */,
 				C4B401392B742F5100DE2BD3 /* ExploreContentTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

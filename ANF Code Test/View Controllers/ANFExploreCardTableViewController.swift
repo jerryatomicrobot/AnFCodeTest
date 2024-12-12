@@ -13,8 +13,6 @@ class ANFExploreCardTableViewController: UITableViewController {
 
     var exploreItems: [ExploreItem]?
 
-    private static var listToDetailSegueId = "listToDetailSegue"
-
     static var storyboardId = "\(ANFExploreCardTableViewController.self)"
 
     // View Controller Lifecycle
@@ -27,20 +25,6 @@ class ANFExploreCardTableViewController: UITableViewController {
 
         setupView()
         loadData()
-    }
-
-    // MARK: - Navigation
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let segueId = ANFExploreCardTableViewController.listToDetailSegueId
-
-        guard segue.identifier == segueId,
-              let detailsVC = segue.destination as? DetailsViewController,
-              let exploreItem = sender as? ExploreItem else {
-            return
-        }
-
-        detailsVC.exploreItem = exploreItem
     }
 
     // MARK: Setup/Utility Methods
@@ -131,8 +115,5 @@ class ANFExploreCardTableViewController: UITableViewController {
         }
 
         cell.setSelected(false, animated: true)
-
-        let segueId = ANFExploreCardTableViewController.listToDetailSegueId
-        self.performSegue(withIdentifier: segueId, sender: cell.exploreItem)
     }
 }

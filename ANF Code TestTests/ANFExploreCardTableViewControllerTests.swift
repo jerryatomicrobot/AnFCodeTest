@@ -21,9 +21,7 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
 
         testInstance = storyboard.instantiateViewController(withIdentifier: vcId) as? ANFExploreCardTableViewController
 
-        if UIApplication.useLocalExploreData {
-            testInstance.exploreItems = exploreItems
-        }
+        testInstance.exploreItems = exploreItems
     }
 
     func test_exploreData_shouldNotBeNil() {
@@ -48,6 +46,16 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
         XCTAssertEqual(numberOfRows, 10, "table view should have 10 cells")
     }
 
+    func test_cellForRowAtIndexPath_topDescription_shouldNotBeBlank() {
+        guard let firstCell = testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ExploreContentTableViewCell else {
+            XCTFail("firstCell must not be nil.")
+            return
+        }
+
+        let topDescription = firstCell.topDescription
+        XCTAssertFalse(topDescription?.isEmpty ?? true, "top description should not be blank")
+    }
+
     func test_cellForRowAtIndexPath_titleText_shouldNotBeBlank() {
         guard let firstCell = testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ExploreContentTableViewCell else {
             XCTFail("firstCell must not be nil.")
@@ -55,7 +63,17 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
         }
 
         let title = firstCell.title
-        XCTAssertGreaterThan(title?.count ?? 0, 0, "title should not be blank")
+        XCTAssertFalse(title?.isEmpty ?? true, "title should not be blank")
+    }
+
+    func test_cellForRowAtIndexPath_promo_shouldNotBeBlank() {
+        guard let firstCell = testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ExploreContentTableViewCell else {
+            XCTFail("firstCell must not be nil.")
+            return
+        }
+
+        let promo = firstCell.topDescription
+        XCTAssertFalse(promo?.isEmpty ?? true, "promo should not be blank")
     }
 
     func test_cellForRowAtIndexPath_ImageViewImage_shouldNotBeNil() {
@@ -70,6 +88,26 @@ class ANFExploreCardTableViewControllerTests: XCTestCase {
             let image = firstCell.image
             XCTAssertNotNil(image, "image view image should not be nil")
         }
+    }
+
+    func test_cellForRowAtIndexPath_bottomDescription_shouldNotBeBlank() {
+        guard let firstCell = testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ExploreContentTableViewCell else {
+            XCTFail("firstCell must not be nil.")
+            return
+        }
+
+        let bottomAttDescription = firstCell.bottomDescription
+        XCTAssertNotNil(bottomAttDescription, "bottom attributed description should not be nil")
+    }
+
+    func test_cellForRowAtIndexPath_contentButtons_shouldHaveTwoButtons() {
+        guard let firstCell = testInstance.tableView(testInstance.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as? ExploreContentTableViewCell else {
+            XCTFail("firstCell must not be nil.")
+            return
+        }
+
+        let buttons = firstCell.contentButtons
+        XCTAssertEqual(buttons.count, 2, "firstCell should have 2 buttons")
     }
 
     func test_downloadWebExploreData() async throws {

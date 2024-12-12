@@ -28,7 +28,7 @@ class ExploreContentTableViewCell: UITableViewCell {
         }
     }
 
-    private var contentButtons: [ContentButton] = []
+    private(set) var contentButtons: [ContentButton] = []
 
     private var bottomDescAttributedString: NSAttributedString? {
         guard let exploreItem = self.exploreItem,
@@ -56,10 +56,13 @@ class ExploreContentTableViewCell: UITableViewCell {
         return [.paragraphStyle: paragraph, .font: UIFont.systemFont(ofSize: 13), .foregroundColor: UIColor.systemGray3]
     }
 
-    // NOTE: The following computed vars are for testing purposes only:
+    // NOTE: The following computed vars are for unit testing purposes only:
 
-    var title: String? { titleLabel.text }
     var image: UIImage? { bgImageView.image }
+    var topDescription: String? { topDescLabel.text }
+    var title: String? { titleLabel.text }
+    var promo: String? { promoLabel.text }
+    var bottomDescription: NSAttributedString? { bottomDescTextView.attributedText }
 
     // MARK: UITableViewCell Lifecycle
 
